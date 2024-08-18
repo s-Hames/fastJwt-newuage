@@ -1,9 +1,9 @@
 # from fastapi import FastAPI
 import uvicorn
+from app import api
 
 if __name__ == "__main__":
-    # uvicorn.run("app.api:app")
-    uvicorn.run("app.api:app")
+    uvicorn.run(api.app)
 
 # app = FastAPI()
 
