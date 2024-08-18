@@ -1,13 +1,15 @@
 
 
 from fastapi import Depends, FastAPI, Body
+import uvicorn
 
 from app.auth.auth_bearer import JWTBearer
 from app.auth.auth_handler import sign_jwt
 from app.model import UserSchema, UserLoginSchema
 
 app = FastAPI()
-
+if __name__ == "__main__":
+    uvicorn.run(app)
 users = []
 
 
