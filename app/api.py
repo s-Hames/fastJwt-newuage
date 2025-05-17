@@ -7,6 +7,17 @@ from app.auth.auth_bearer import JWTBearer
 from app.auth.auth_handler import sign_jwt
 from app.model import UserSchema, UserLoginSchema
 
+
+class LocationData(BaseModel):
+    latitude: float
+    longitude: float
+    timestamp: str
+    accuracy: Optional[float] = None
+    altitude: Optional[float] = None
+    speed: Optional[float] = None
+    speedAccuracy: Optional[float] = None
+    heading: Optional[float] = None
+    
 app = FastAPI()
 if __name__ == "__main__":
     uvicorn.run(app)
