@@ -42,3 +42,16 @@ def testJWT() :
     return {
         "message" : "verified user hai bhai sending data"
     }
+
+@app.post("/location")
+async def receive_location(location: LocationData):
+    try:
+        print(f"Received location data: {location.dict()}")
+        
+        return {
+            "status": "success",
+            "message": "Location data received successfully",
+            "data": location.dict()
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
